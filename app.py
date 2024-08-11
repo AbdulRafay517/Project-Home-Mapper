@@ -17,7 +17,7 @@ st.set_page_config(
 
 # Firebase configuration (your existing Firebase config)
 firebaseConfig = {
-    'apiKey': "AIzaSyB_7P-uGwj-veIRQ6r0pmvYt3icC4g5zrU",
+    'apiKey': "",
     'authDomain': "homemapper-f7f6f.firebaseapp.com",
     'projectId': "homemapper-f7f6f",
     'databaseURL': "https://homemapper-f7f6f-default-rtdb.europe-west1.firebasedatabase.app",
