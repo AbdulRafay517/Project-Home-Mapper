@@ -499,7 +499,11 @@ class ConversionLayout(object):
         #     print("error happen! please check the intersection box point")
         line = LineString([intersection_box_point[0], intersection_box_point[-1], intersection_box_point[1]])
         contour_polygon = Polygon(contour_coord)
-        contour_collection = list(split(contour_polygon, line))
+        result = split(contour_polygon, line)
+        if hasattr(result, 'geoms'):
+            contour_collection = list(result.geoms)
+        else:
+            contour_collection = [result]
         if len(contour_collection) > 1:
             second_contour_random_point = np.array(contour_collection[0].exterior.coords).astype(np.int32)
             first_contour_random_point = np.array(contour_collection[1].exterior.coords).astype(np.int32)
@@ -552,7 +556,7 @@ class ConversionLayout(object):
         else:
             # bounding_box: (x, y, w, h)
             bounding_box = cv.boundingRect(boxes_coord)
-            bounding_box = np.array([bounding_box[0], bounding_box[1], bounding_box[2], bounding_box[3]], dtype=np.int)
+            bounding_box = np.array([bounding_box[0], bounding_box[1], bounding_box[2], bounding_box[3]], dtype=np.int32)
             if contour:
                 point_hull = boxes_coord
             else:
@@ -576,7 +580,7 @@ class ConversionLayout(object):
             def calculate_surface_area(polygon):
                 # use the image to calculate the area
                 im = np.zeros((256, 256))
-                polygon_mask = cv.fillPoly(im, [np.array(polygon, dtype=np.int)], 255)
+                polygon_mask = cv.fillPoly(im, [np.array(polygon, dtype=np.int32)], 255)
                 area = np.sum(np.greater(polygon_mask, 0))
                 return area
             k_min, area_limitation = 1. / (2* room_num), 50

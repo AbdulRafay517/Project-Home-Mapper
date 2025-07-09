@@ -1,7 +1,7 @@
 DATASET_NAME: 'layout'
 CONFIG_NAME: 'MultiLayer'
-DATA_DIR: '/home/datasets/MultiLayerDataset/GeneratorTestData'
-GT_DATA_DIR: '/home/datasets/MultiLayerDataset/GroundLayer'
+DATA_DIR: './data/MultiLayerDataset/GeneratorTestData'
+GT_DATA_DIR: './data/MultiLayerDataset/GroundLayer'
 DATASET: 'gen'
 GPU: '0'
 
@@ -13,7 +13,7 @@ TRAIN:
     SCORE_HIDDERN_DIM: 32
     ROOM_GEN_HIDDERN_DIM: 16
     BIDIRECTIONAL: False
-    EVALUATOR: '/home/zhoujiaqiu/project/HPGM/LayoutGenerator_Lited/output_dir/EVALUATOR_layout_Model/Model/evaluator_best.pth'
+    EVALUATOR: './Project-Home-Mapper/LayoutGenerator_Lited/output_dir/EVALUATOR_layout_Model/Model/evaluator_best.pth'
     SAMPLE_NUM: 200
     BATCH: False
     MARGIN: 1.0
@@ -25,7 +25,7 @@ EVALUATOR:
 
 EVAL:
     TEST_INDEX: 2
-    MODEL_EVALUATOR: '/home/zhoujiaqiu/project/HPGM/LayoutGenerator_Lited/output_dir/EVALUATOR_layout_Model/Model/evaluator_best.pth'
-    MODEL_GENERATOR: '/home/zhoujiaqiu/project/HPGM/LayoutGenerator_Lited/output_dir/GENERATOR_layout_Model/Model/generator_best.pth'
-    OUTPUT_DIR: '/home/zhoujiaqiu/project/HPGM/LayoutGenerator_Lited/output_dir/GENERATOR_layout_Model'
+    MODEL_EVALUATOR: './output_dir/EVALUATOR_layout_Model/Model/evaluator_best.pth'
+    MODEL_GENERATOR: './output_dir/GENERATOR_layout_Model/Model/generator_best.pth'
+    OUTPUT_DIR: './output_dir/GENERATOR_layout_Model'
     EVAL_METRIC: 0

@@ -124,7 +124,7 @@ def room_size_range_hull(contour_hull, hull_type, range_type):
     hull_index = hull_index[::-1]
     for i in range(len(hull_index)):      
         new_hull.append(contour_hull[hull_index[i]])
-    new_hull = np.array(new_hull)
+    new_hull = np.array(new_hull, dtype=object)
     # # type range
     new_type, new_type_index = [], []
     for i in range(len(hull_type)):
@@ -272,7 +272,15 @@ class LayoutTrainer(object):
             # plot
             plt.figure(0)
             plt.plot(training_epoch, training_error, color="r", linestyle="-", linewidth=1, label="training")
-            plt.plot(testing_epoch, testing_error, color="b", linestyle="-", linewidth=1, label="testing")
+            def safe_scalar(x):
+              if isinstance(x, torch.Tensor):
+                return x.cpu().item()
+              return x
+            plt.plot(
+                [safe_scalar(x) for x in testing_epoch],
+                [safe_scalar(x) for x in testing_error],
+                color="b", linestyle="-", linewidth=1, label="testing"
+            )
             plt.xlabel("epoch")
             plt.ylabel("loss")
             plt.legend(loc='best')

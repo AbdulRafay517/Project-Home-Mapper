@@ -1,0 +1,22 @@
+2025-07-09 18:28:53,050 INFO: Using config:{'DATASET_NAME': 'layout', 'CUDA': True, 'DATA_DIR': './data/MultiLayerDataset/GeneratorTrainData', 'GT_DATA_DIR': './data/MultiLayerDataset/GroundLayer', 'INDICATOR_DIR': '', 'GPU': '0', 'CONFIG_NAME': 'MultiLayer', 'DATASET': 'gen', 'TRAIN': {'FLAG': True, 'BATCH_SIZE': 1, 'MAX_EPOCH': 300, 'TAU': 10.0, 'ROOM_HIDDERN_DIM': 16, 'SCORE_HIDDERN_DIM': 32, 'EVALUATOR': './Project-Home-Mapper/LayoutGenerator_Lited/output_dir/EVALUATOR_layout_Model/Model/evaluator_best.pth', 'GENERATOR_MODEL': '', 'SAMPLE_NUM': 50, 'BATCH': False, 'MARGIN': 1.0, 'GENERATOR': True, 'ROOM_GEN_HIDDERN_DIM': 16, 'BIDIRECTIONAL': False, 'CONSTRAINT_RULES': [1, 2, 3, 4, 5]}, 'EVAL': {'OUTPUT_DIR': '', 'MODEL_EVALUATOR': '', 'MODEL_GENERATOR': '', 'TEST_INDEX': 1, 'EVAL_METRIC': 1}, 'EVALUATOR': {'LR': 0.0001, 'WEIGHT_DECAY': 0.0005}, 'GENERATOR': {'LR': 0.001, 'WEIGHT_DECAY': 0.0005, 'ALPHA': 20, 'BETA': 0, 'LOSS': 'soft', 'MAX_EPOCH': 500}}
+2025-07-09 18:29:01,517 INFO: Layout_evaluator: LayoutEvaluator(
+  (LayoutSeq): LSTM(4, 8)
+  (mlp): Sequential(
+    (0): Linear(in_features=8, out_features=32, bias=True)
+    (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=32, out_features=1, bias=True)
+    (4): BatchNorm1d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Sigmoid()
+  )
+)
+2025-07-09 18:29:01,517 INFO: Layout_generator: LayoutGenerator(
+  (encoder): LSTM(4, 16)
+  (decoder): LSTM(16, 16)
+  (mlp): Sequential(
+    (0): Linear(in_features=16, out_features=16, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=16, out_features=4, bias=True)
+    (3): Sigmoid()
+  )
+)

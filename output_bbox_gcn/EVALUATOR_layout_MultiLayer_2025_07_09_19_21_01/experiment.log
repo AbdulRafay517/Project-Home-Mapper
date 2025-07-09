@@ -1,0 +1,14 @@
+2025-07-09 19:21:01,400 INFO: Using config:{'DATASET_NAME': 'layout', 'CUDA': True, 'DATA_DIR': './data/MultiLayerDataset', 'GT_DATA_DIR': '', 'INDICATOR_DIR': '', 'GPU': '0', 'CONFIG_NAME': 'MultiLayer', 'DATASET': 'eval', 'TRAIN': {'FLAG': True, 'BATCH_SIZE': 1, 'MAX_EPOCH': 1600, 'TAU': 100.0, 'ROOM_HIDDERN_DIM': 8, 'SCORE_HIDDERN_DIM': 32, 'EVALUATOR': '', 'GENERATOR_MODEL': '', 'SAMPLE_NUM': 20, 'BATCH': False, 'MARGIN': 1.0, 'GENERATOR': False, 'ROOM_GEN_HIDDERN_DIM': 64, 'BIDIRECTIONAL': False, 'CONSTRAINT_RULES': [1, 2, 3, 4, 5]}, 'EVAL': {'OUTPUT_DIR': '', 'MODEL_EVALUATOR': '', 'MODEL_GENERATOR': '', 'TEST_INDEX': 1, 'EVAL_METRIC': 1}, 'EVALUATOR': {'LR': 0.0001, 'WEIGHT_DECAY': 0.0005}, 'GENERATOR': {'LR': 0.0001, 'WEIGHT_DECAY': 0.0005, 'ALPHA': 20, 'BETA': 0, 'LOSS': '', 'MAX_EPOCH': 0}}
+2025-07-09 19:21:15,132 INFO: layout_evaluator: LayoutEvaluator(
+  (LayoutSeq): LSTM(4, 8)
+  (mlp): Sequential(
+    (0): Linear(in_features=8, out_features=32, bias=True)
+    (1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Linear(in_features=32, out_features=1, bias=True)
+    (4): BatchNorm1d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): Sigmoid()
+  )
+)
+2025-07-09 19:21:17,118 INFO: In epoch 0, pred_score1: tensor([0.6932], device='cuda:0', grad_fn=<SelectBackward0>), pred_score2: tensor([0.2413], device='cuda:0', grad_fn=<SelectBackward0>)
+2025-07-09 19:21:17,118 INFO: pred: 0.1071673035621643

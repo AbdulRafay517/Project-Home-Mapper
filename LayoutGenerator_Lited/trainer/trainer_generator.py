@@ -379,7 +379,7 @@ class LayGenerator(object):
                 if refine_hull != -1:
                     refine_hulls.append(refine_hull)
                     refine_sum_hulls.append(refine_hull)
-                    init_sum_contour.append(np.array(init_contour[0][0][:, :2]*255, dtype=np.int))  
+                    init_sum_contour.append(np.array(init_contour[0][0][:, :2]*255, dtype=np.int32))  
                     num = num + 1
                 if not eval_metric:
                     if num == max_num:
