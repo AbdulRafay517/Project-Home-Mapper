@@ -1,7 +1,7 @@
 CONFIG_NAME: '3stages'
 
 DATASET_NAME: 'layout'
-DATA_DIR: '/home/zhoujiaqiu/data/layout_new'
+DATA_DIR: '/content/Project-Home-Mapper/dataset/dataset/layout_new'
 GPU_ID: '0'
 WORKERS: 0
 
